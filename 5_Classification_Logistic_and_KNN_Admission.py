@@ -8,7 +8,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
 # 1. Load Dataset
-path = "/home/avcoe/Admission_Predict.csv" if os.path.exists("/home/avcoe/Admission_Predict.csv") else "datasets/Admission_Predict.csv"
+path = "Admission_Predict.csv"
 df = pd.read_csv(path)
 
 # 2. Target Definition & Feature Selection
