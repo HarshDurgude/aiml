@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 
 # 1. Load Dataset
-path = "/home/avcoe/Housing.csv" if os.path.exists("/home/avcoe/Housing.csv") else "datasets/Housing.csv"
+path = "Housing.csv"
 df = pd.read_csv(path)
 
 # 2. Features & Target (One-hot encode categorical features)
