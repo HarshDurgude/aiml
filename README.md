@@ -1,307 +1,338 @@
 # 🧠 Artificial Intelligence & Machine Learning (AIML) Lab Practicals
-### कृत्रिम बुद्धिमत्ता आणि मशीन लर्निंग (AIML) प्रयोग व लॅब मार्गदर्शिका
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Python 3](https://img.shields.io/badge/Python-3.x-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Linux](https://img.shields.io/badge/OS-Linux%20%7C%20Ubuntu-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![Pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/Repo-PrashilD15%2Faiml-black?logo=github)](https://github.com/PrashilD15/aiml)
 
-Welcome to the **AIML Laboratory Practicals Repository**! This repository contains clean, modular, and fully tested Python implementations for college laboratory practicals (Practicals 2 to 9).
-
-हे रिपॉझिटरी अभियांत्रिकी व कॉम्प्युटर सायन्सच्या **AIML प्रॅक्टिकल्स (2 ते 9)** साठी तयार करण्यात आले आहे. यामध्ये कोड कसा चालवायचा, कॉलेज लॅब पीसी आणि वैयक्तिक लॅपटॉपवर कसा एक्झिक्युट करायचा, आणि व्हायव्हा (Oral/Viva) मधील विचारले जाणारे महत्त्वाचे प्रश्न-उत्तरे इंग्रजी आणि मराठी दोन्ही भाषांमध्ये देण्यात आली आहेत.
-
----
-
-## 📌 Dual-Environment Compatibility (दोन्ही वातावरणात चालण्यायोग्य)
-
-- **College Lab PCs (कॉलेज लॅब पीसी):** Pre-configured with dataset path `/home/avcoe/`. (कॉलेजमधील लिनक्स पीसीवर कोड थेट चालेल.)
-- **Personal Laptops / PCs (घरचा लॅपटॉप/कॉम्प्युटर):** Automatically falls back to the included `datasets/` directory in this repo. No extra setup required! (लॅपटॉपवर क्लोन केल्यावर `datasets/` फोल्डरमधून डेटा आपोआप लोड होईल.)
+> **Quick Jump / थेट नेव्हिगेशन:**
+> - [📘 Part 1: Complete English Guide (Linux Terminal Commands & Viva Q&A)](#-part-1-complete-english-guide)
+> - [📙 भाग २: संपूर्ण मराठी मार्गदर्शिका (लिनक्स कमांड्स व व्हायव्हा प्रश्नोत्तरे)](#-भाग-२-संपूर्ण-मराठी-मार्गदर्शिका)
 
 ---
 
-## 📑 Index of Practicals (प्रयोगांची अनुक्रमणिका)
+# 📘 PART 1: COMPLETE ENGLISH GUIDE
 
-| Practical | Topic / Title | Algorithm / Technique | Script Name |
-| :---: | :--- | :--- | :--- |
-| **02** | Route Planning / Graph Search | BFS & DFS | [`2.py`](2.py) / [`practical_02_bfs_dfs.py`](practical_02_bfs_dfs.py) |
-| **03** | Expert System | Forward & Backward Chaining | [`3.py`](3.py) / [`practical_03_expert_system.py`](practical_03_expert_system.py) |
-| **04** | Data Preprocessing & EDA | Cleaning, Summary & Train-Test Split | [`4.py`](4.py) / [`practical_04_data_preprocessing.py`](practical_04_data_preprocessing.py) |
-| **05** | Supervised Classification | Logistic Regression & KNN | [`5.py`](5.py) / [`practical_05_classification_logistic_knn.py`](practical_05_classification_logistic_knn.py) |
-| **06** | Regression Analysis | Linear & Polynomial Regression | [`6.py`](6.py) / [`practical_06_regression_linear_poly.py`](practical_06_regression_linear_poly.py) |
-| **07** | Unsupervised Clustering | K-Means & Hierarchical Clustering | [`7.py`](7.py) / [`practical_07_clustering_kmeans_hierarchical.py`](practical_07_clustering_kmeans_hierarchical.py) |
-| **08** | Dimensionality Reduction | PCA with SVM Classifier | [`8.py`](8.py) / [`practical_08_pca_dimensionality_reduction.py`](practical_08_pca_dimensionality_reduction.py) |
-| **09** | Ensemble & Hyperparameter Tuning | GridSearchCV on SVM, RF & AdaBoost | [`9.py`](9.py) / [`practical_09_ensemble_hyperparameter_tuning.py`](practical_09_ensemble_hyperparameter_tuning.py) |
+## 1. System Overview & Dual Compatibility
+This repository contains complete implementations of **AIML Laboratory Practicals (2 to 9)**.
+
+The codebase is built Linux-first and includes automatic path detection:
+- **College Lab PCs (Linux / Ubuntu):** Automatically reads datasets from `/home/avcoe/` where laboratory datasets reside.
+- **Personal Laptops / PCs (Linux, Windows, macOS):** Automatically falls back to the local `datasets/` directory included in this repository.
 
 ---
 
-## 💻 How to Setup & Execute on Personal Laptop / PC
-### लॅपटॉप किंवा कॉम्प्युटरवर कोड कसा रन करावा
+## 2. Linux Terminal Commands (Setup & Execution)
 
-### 1. Clone the Repository (प्रकल्प क्लोन करा):
-Open Terminal (macOS/Linux) or PowerShell / Command Prompt (Windows):
+### Step 1: Open Terminal & Clone Repository
+Open your Linux terminal (`Ctrl + Alt + T` on Ubuntu):
 ```bash
 git clone https://github.com/PrashilD15/aiml.git
 cd aiml
 ```
 
-### 2. Install Dependencies (लायब्ररी इन्स्टॉल करा):
+### Step 2: Install Dependencies via `pip3`
+Install required packages using Linux Python 3 package manager:
 ```bash
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
-*Or install manually:*
+*(Or install packages directly:)*
 ```bash
-pip install pandas scikit-learn matplotlib seaborn numpy scipy
-```
-
-### 3. Run Any Practical (कोणतेही प्रॅक्टिकल रन करा):
-You can run using either the short number filename (`2.py`) or the descriptive name:
-
-```bash
-# Practical 2
-python 2.py
-# किंवा
-python practical_02_bfs_dfs.py
-
-# Practical 3
-python 3.py
-
-# Practical 4
-python 4.py
-
-# Practical 5
-python 5.py
-
-# Practical 6
-python 6.py
-
-# Practical 7
-python 7.py
-
-# Practical 8
-python 8.py
-
-# Practical 9
-python 9.py
+python3 -m pip install pandas scikit-learn matplotlib seaborn numpy scipy
 ```
 
----
+### Step 3: Run Any Practical
+Execute scripts using Linux `python3`:
 
-## 🔬 Practical Details & Execution Commands (सविस्तर माहिती)
+```bash
+# Practical 2: Route Planning (BFS & DFS)
+python3 Practical_02_Route_Planning_BFS_DFS.py
+# (Alternative short command): python3 2.py
 
-### Practical 2: Route Planning using BFS and DFS
-- **English:** Explores graph traversal to find routes from start node `A` to goal node `F`. Breadth-First Search (BFS) explores level-by-level using a FIFO Queue and guarantees the shortest unweighted path. Depth-First Search (DFS) explores branch-by-branch using a LIFO Stack.
-- **मराठी:** आलेखामधील (Graph) सुरुवातीच्या बिंदूपासून (`A`) अंतिम बिंदूपर्यंत (`F`) मार्ग शोधण्यासाठी BFS आणि DFS अल्गोरिदम वापरले आहेत. BFS कमीत कमी पायऱ्यांचा (Shortest Path) मार्ग शोधतो तर DFS एकाच शाखेमध्ये खोलवर शोध घेतो.
-- **Run Command:**
-  ```bash
-  python 2.py
-  ```
+# Practical 3: Rule-Based Expert System (Forward & Backward Chaining)
+python3 Practical_03_Rule_Based_Expert_System.py
+# (Alternative short command): python3 3.py
 
----
+# Practical 4: Data Preprocessing, EDA & Train-Test Split
+python3 Practical_04_Data_Preprocessing_EDA.py
+# (Alternative short command): python3 4.py
 
-### Practical 3: Rule-Based Expert System (Forward & Backward Chaining)
-- **English:** Implements a medical diagnosis expert system.
-  - **Forward Chaining (Data-Driven):** Starts with known symptoms (`Fever`, `Cough`, `BodyPain`) and applies inference rules to deduce conclusions (`Flu` $\rightarrow$ `ViralInfection` $\rightarrow$ `Medicine`).
-  - **Backward Chaining (Goal-Driven):** Starts with the hypothesis/goal (`Medicine`) and works backward to verify if premises are supported by known facts.
-- **मराठी:** हे एक नियम-आधारित तज्ज्ञ प्रणाली (Expert System) आहे.
-  - **फॉरवर्ड चेनिंग (डेटा-ड्रिव्हन):** आधीपासून माहिती असलेल्या लक्षणांवरून निष्कर्षापर्यंत पोहोचते.
-  - **बॅकवर्ड चेनिंग (गोल-ड्रिव्हन):** अंतिम उद्दिष्टापासून (उदा. 'Medicine') सुरुवात करून पाठीमागे जाऊन तथ्ये तपासते.
-- **Run Command:**
-  ```bash
-  python 3.py
-  ```
+# Practical 5: Classification using Logistic Regression & KNN
+python3 Practical_05_Classification_Logistic_KNN.py
+# (Alternative short command): python3 5.py
 
----
+# Practical 6: Regression Analysis (Linear vs Polynomial)
+python3 Practical_06_Regression_Linear_Polynomial.py
+# (Alternative short command): python3 6.py
 
-### Practical 4: Data Preprocessing, EDA and Train-Test Split
-- **Dataset:** `heart.csv` (Cleveland Heart Disease Dataset)
-- **English:** Reads patient data, checks shapes, data types, summary statistics, fills missing values using median, removes duplicate rows, plots histograms and boxplots for `age` and `chol`, and splits into training and testing sets (80:20).
-- **मराठी:** हृदयाच्या विकारासंबंधी डेटासेटवर डेटा क्लीनिंग, मिसिंग व्हॅल्यूज भरणे, डुप्लिकेट रेकॉर्ड्स काढणे, हिस्टोग्राम व बॉक्सप्लॉट द्वारे व्हिज्युअलायझेशन करणे आणि 80:20 प्रमाणात ट्रेन-टेस्ट स्प्लिट करणे.
-- **Run Command:**
-  ```bash
-  python 4.py
-  ```
+# Practical 7: Clustering (K-Means & Hierarchical Dendrogram)
+python3 Practical_07_Clustering_KMeans_Hierarchical.py
+# (Alternative short command): python3 7.py
 
----
+# Practical 8: Dimensionality Reduction using PCA with SVM
+python3 Practical_08_PCA_Dimensionality_Reduction.py
+# (Alternative short command): python3 8.py
 
-### Practical 5: Classification using Logistic Regression & KNN
-- **Dataset:** `Admission_Predict.csv` (Graduate Admissions Dataset)
-- **English:** Encodes categorical columns, standardizes continuous features (`GRE Score`, `CGPA`) using `StandardScaler`, and trains both **Logistic Regression** and **K-Nearest Neighbors (KNN)**. Outputs accuracy, classification report (precision, recall, f1-score), and confusion matrices.
-- **मराठी:** विद्यार्थ्यांच्या पदव्युत्तर प्रवेशाचा अंदाज लावण्यासाठी **लॉजिस्टीक रिग्रेशन** आणि **के-निअरेस्ट नेबर्स (KNN)** वर्गीकरण मॉडेल्स तयार करणे आणि त्यांची अचूकता तपासणे.
-- **Run Command:**
-  ```bash
-  python 5.py
-  ```
+# Practical 9: Model Optimization, Ensemble Learning & GridSearchCV
+python3 Practical_09_Ensemble_Learning_GridSearchCV.py
+# (Alternative short command): python3 9.py
+```
 
 ---
 
-### Practical 6: Regression Analysis (Linear vs Polynomial)
-- **Dataset:** `Housing.csv` (Housing Price Prediction)
-- **English:** Handles missing values, encodes categorical features via One-Hot Encoding (`pd.get_dummies`), trains a standard **Linear Regression** model and a **Polynomial Regression (Degree 2)** model via a pipeline with `StandardScaler`. Compares performance using MSE, MAE, and $R^2$ Score.
-- **मराठी:** घरांच्या किमतींचा अंदाज लावण्यासाठी **लिनिअर रिग्रेशन** आणि **पॉलिइनॉमिअल रिग्रेशन (Degree 2)** मॉडेल्सची तुलना MSE, MAE आणि $R^2$ गुणांकांच्या आधारे करणे.
-- **Run Command:**
-  ```bash
-  python 6.py
-  ```
+## 3. Practicals Index & Implementation Details
+
+| Practical | Script Name | Short Name | Dataset | Core Algorithm / Technique |
+| :---: | :--- | :---: | :---: | :--- |
+| **02** | [`Practical_02_Route_Planning_BFS_DFS.py`](Practical_02_Route_Planning_BFS_DFS.py) | `2.py` | Built-in Graph | Breadth-First Search & Depth-First Search |
+| **03** | [`Practical_03_Rule_Based_Expert_System.py`](Practical_03_Rule_Based_Expert_System.py) | `3.py` | Medical Rules | Forward Chaining & Backward Chaining |
+| **04** | [`Practical_04_Data_Preprocessing_EDA.py`](Practical_04_Data_Preprocessing_EDA.py) | `4.py` | `heart.csv` | Missing value imputation, Outlier detection, Train-Test split |
+| **05** | [`Practical_05_Classification_Logistic_KNN.py`](Practical_05_Classification_Logistic_KNN.py) | `5.py` | `Admission_Predict.csv` | Logistic Regression & K-Nearest Neighbors (KNN) |
+| **06** | [`Practical_06_Regression_Linear_Polynomial.py`](Practical_06_Regression_Linear_Polynomial.py) | `6.py` | `Housing.csv` | Linear Regression vs Polynomial Regression ($Degree=2$) |
+| **07** | [`Practical_07_Clustering_KMeans_Hierarchical.py`](Practical_07_Clustering_KMeans_Hierarchical.py) | `7.py` | `Mall_Customers.csv` | K-Means (Elbow Method) & Agglomerative Hierarchical (Dendrogram) |
+| **08** | [`Practical_08_PCA_Dimensionality_Reduction.py`](Practical_08_PCA_Dimensionality_Reduction.py) | `8.py` | `wdbc.csv` | Principal Component Analysis (PCA) & Support Vector Machine (SVM) |
+| **09** | [`Practical_09_Ensemble_Learning_GridSearchCV.py`](Practical_09_Ensemble_Learning_GridSearchCV.py) | `9.py` | `breast_cancer.csv` | Random Forest, AdaBoost, SVM with GridSearchCV (5-Fold CV) |
 
 ---
 
-### Practical 7: Clustering (K-Means & Hierarchical Agglomerative)
-- **Dataset:** `Mall_Customers.csv` (Customer Mall Segmentation)
-- **English:** Extracts `Age`, `Annual Income`, and `Spending Score`. Employs the **Elbow Method** to calculate Within-Cluster Sum of Squares (WCSS/inertia) to find optimal clusters ($K=5$). Displays 3D scatter plots of clusters and builds a **Dendrogram** with Ward's linkage for Hierarchical Agglomerative Clustering.
-- **मराठी:** ग्राहकांच्या वय, उत्पन्न आणि खर्च करण्याच्या सवयींवरून **के-मीन्स (K-Means)** आणि **हायराक्रिकल (Dendrogram)** क्लस्टरिंग करणे.
-- **Run Command:**
-  ```bash
-  python 7.py
-  ```
+## 4. Comprehensive Oral / Viva Voce Questions & Answers (English)
 
----
-
-### Practical 8: Dimensionality Reduction using PCA with SVM
-- **Dataset:** `wdbc.csv` (Wisconsin Diagnostic Breast Cancer)
-- **English:** Standardizes 30 diagnostic features, measures baseline SVM classification accuracy. Projects data to 2D for visualization via **PCA (Principal Component Analysis)**, and then reduces dimensions to preserve 95% of total variance. Re-trains SVM and demonstrates reduced feature count with maintained/improved accuracy.
-- **मराठी:** 30 वैशिष्ट्यांची (features) संख्या **प्रिन्सिपल कॉम्पोनंट ॲनालिसिस (PCA)** द्वारे कमी करून 95% माहिती राखून SVM क्लासिफायरची अचूकता तपासणे.
-- **Run Command:**
-  ```bash
-  python 8.py
-  ```
-
----
-
-### Practical 9: Model Optimization, Ensemble Learning & GridSearchCV
-- **Dataset:** `breast_cancer.csv`
-- **English:** Compares single classifier (**SVM**) against ensemble methods (**Random Forest** and **AdaBoost**). Optimizes hyperparameters using **GridSearchCV with 5-fold cross-validation** to identify best parameters and maximize Accuracy, Precision, Recall, and F1-score.
-- **मराठी:** **SVM**, **रँडम फॉरेस्ट (Random Forest)**, आणि **ॲडाबूस्ट (AdaBoost)** मॉडेल्सचे **GridSearchCV** द्वारे हायपरपॅरामीटर ट्युनिंग करून सर्वोत्तम पॅरामीटर्स शोधणे.
-- **Run Command:**
-  ```bash
-  python 9.py
-  ```
-
----
-
-## 🎯 Comprehensive Oral / Viva Voce Questions & Answers
-### परीक्षेसाठी तोंडी (Oral / Viva) प्रश्न आणि उत्तरे
-
----
-
-### 🔹 Practical 2: BFS and DFS
-**Q1. What is the fundamental difference between BFS and DFS?**
-- **English Answer:** BFS (Breadth-First Search) explores the search tree level by level using a **Queue (FIFO)** and guarantees finding the shortest path in an unweighted graph. DFS (Depth-First Search) explores deep along each branch before backtracking using a **Stack (LIFO)**.
-- **मराठी उत्तर:** BFS मध्ये लेव्हलनुसार एकामागून एक नोड्स तपासले जातात (Queue द्वारे) आणि हा कमीत कमी अंतराचा मार्ग देतो. DFS मध्ये एका शाखेत खोलवर जाऊन तपासणी केली जाते (Stack द्वारे).
-
-**Q2. What are the time and space complexities?**
-- **BFS:** Time = $\mathcal{O}(V + E)$, Space = $\mathcal{O}(V)$ (requires storing all nodes of a level in the queue).
-- **DFS:** Time = $\mathcal{O}(V + E)$, Space = $\mathcal{O}(d)$ (where $d$ is maximum depth).
-
----
+### 🔹 Practical 2: Route Planning using BFS and DFS
+- **Q1: What is the fundamental difference between BFS and DFS?**
+  - **Answer:** BFS explores nodes level by level using a FIFO Queue and guarantees finding the shortest path on unweighted graphs. DFS explores deep along a single branch before backtracking using a LIFO Stack.
+- **Q2: Does BFS always find the optimal path?**
+  - **Answer:** Yes, for unweighted graphs (where each move has an identical edge cost of 1). For weighted graphs, algorithms like Dijkstra or A* are necessary.
+- **Q3: What are the space and time complexities?**
+  - **Answer:**
+    - Time complexity for both is $\mathcal{O}(V + E)$ where $V$ is vertices and $E$ is edges.
+    - Space complexity: BFS requires $\mathcal{O}(V)$ because an entire tree breadth is held in memory; DFS requires $\mathcal{O}(d)$ where $d$ is maximum depth.
 
 ### 🔹 Practical 3: Expert System & Chaining
-**Q1. What is the difference between Forward Chaining and Backward Chaining?**
-- **English Answer:**
-  - **Forward Chaining:** Data-driven inference. It starts from known facts and applies rules to infer new facts until the goal is reached or no more rules can fire.
-  - **Backward Chaining:** Goal-driven inference. It starts from a hypothesis/goal and searches backward for supporting facts.
-- **मराठी उत्तर:** फॉरवर्ड चेनिंग आधीपासून माहीत असलेल्या तथ्यांवरून (Facts) पुढे जाऊन निष्कर्ष काढते (Data-driven). बॅकवर्ड चेनिंग आधी उद्दिष्ट (Goal) ठरवते आणि ते सिद्ध करण्यासाठी मागील पुरावे शोधते (Goal-driven).
-
-**Q2. What is an Inference Engine?**
-- **English Answer:** The brain of an expert system that applies logical rules to the knowledge base to deduce new information.
-- **मराठी उत्तर:** इन्फरन्स इंजिन म्हणजे एक्सपर्ट सिस्टीमचा मेंदू, जो नॉलेज बेस मधील नियमांचा वापर करून निर्णय घेतो.
-
----
+- **Q1: Explain the difference between Forward Chaining and Backward Chaining.**
+  - **Answer:**
+    - **Forward Chaining (Data-Driven):** Starts with known atomic facts (e.g., `Fever`, `Cough`) and fires matching rules from the knowledge base until deriving new conclusions. Ideal for monitoring, diagnosis, and reactive planning.
+    - **Backward Chaining (Goal-Driven):** Starts with a candidate goal (e.g., `Medicine`) and recursively searches backward for rules whose premises are validated by current facts. Ideal for debugging and hypothesis verification.
+- **Q2: What is an Inference Engine?**
+  - **Answer:** The computational brain of an expert system that applies logical deduction rules to facts stored within the knowledge base to reach conclusions.
 
 ### 🔹 Practical 4: Data Preprocessing & EDA
-**Q1. Why is Data Preprocessing essential before training ML models?**
-- **English Answer:** Real-world datasets contain missing values, noise, outliers, and differing scales. Preprocessing prevents garbage-in, garbage-out, avoids model bias, and improves convergence speed and accuracy.
-- **मराठी उत्तर:** कच्च्या डेटामध्ये गहाळ माहिती (Missing values) आणि त्रुटी असू शकतात. मॉडेलचे अचूक प्रशिक्षण होण्यासाठी डेटा साफ करणे अत्यंत आवश्यक असते.
-
-**Q2. How do you decide between Mean and Median for filling missing values?**
-- **English Answer:** Use **Mean** when data is normally distributed without extreme outliers. Use **Median** when data is skewed or contains significant outliers because median is resistant to extreme values.
-- **मराठी उत्तर:** जर डेटामध्ये जास्त आउटलायर्स (Outliers) नसतील तर **Mean (सरासरी)** वापरतात. जर जास्त आउटलायर्स असतील तर **Median (मध्यक)** वापरतात कारण आउटलायर्सचा मीडियनवर परिणाम होत नाही.
-
----
+- **Q1: Why is data preprocessing required before feeding data to ML algorithms?**
+  - **Answer:** Real-world datasets contain missing values, invalid types, extreme outliers, duplicate rows, and unscaled columns. Garbage data results in biased, inaccurate models ("garbage in, garbage out"). Preprocessing ensures model robustness and rapid numerical convergence.
+- **Q2: When should missing values be filled with Median instead of Mean?**
+  - **Answer:** Use **Mean** when data follows a symmetric, normal distribution without extreme values. Use **Median** when data is skewed or has large outliers, as median is a non-parametric statistic unaffected by extreme outliers.
+- **Q3: Why do we split data into Train and Test sets?**
+  - **Answer:** To evaluate the generalization performance of the model on unseen test data and detect whether the model is overfitting to training data.
 
 ### 🔹 Practical 5: Classification (Logistic Regression & KNN)
-**Q1. Is Logistic Regression a regression algorithm or a classification algorithm?**
-- **English Answer:** Despite its name, Logistic Regression is a **classification algorithm**. It uses the sigmoid (logistic) function to output probabilities between 0 and 1, which are then thresholded into classes.
-- **मराठी उत्तर:** नावात रिग्रेशन असले तरी लॉजिस्टीक रिग्रेशन हा **वर्गीकरण (Classification)** अल्गोरिदम आहे. तो सिग्मॉइड फंक्शनच्या मदतीने शक्यता (Probability) मोजून वर्गीकरण करतो.
+- **Q1: Is Logistic Regression a regression or a classification technique?**
+  - **Answer:** It is a **classification algorithm**. While it fits a linear boundary, it maps continuous predictions through the sigmoid function $\sigma(z) = \frac{1}{1 + e^{-z}}$ to yield a probability score between 0 and 1, which is categorized into discrete classes.
+- **Q2: Why is Feature Scaling (StandardScaler) essential for KNN?**
+  - **Answer:** K-Nearest Neighbors classifies instances based on Euclidean distance: $d(p, q) = \sqrt{\sum (p_i - q_i)^2}$. If one feature is measured in thousands and another in decimals, the larger feature will dominate the distance metric. `StandardScaler` normalizes each feature to have mean $\mu = 0$ and standard deviation $\sigma = 1$.
+- **Q3: What are Precision, Recall, and F1-Score?**
+  - **Answer:**
+    - $\text{Precision} = \frac{TP}{TP + FP}$ (Exactness: of all predicted positives, how many were truly positive?)
+    - $\text{Recall} = \frac{TP}{TP + FN}$ (Completeness: of all actual positives, how many did we identify?)
+    - $\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$ (Harmonic mean balancing precision and recall).
 
-**Q2. Why is feature scaling (e.g., StandardScaler) mandatory for KNN?**
-- **English Answer:** KNN calculates Euclidean distance between data points. If one feature has a range of 0-1000 and another 0-1, the larger feature will dominate the distance metric. Scaling ensures all features contribute equally.
-- **मराठी उत्तर:** KNN मध्ये अंतराची (Distance) गणना केली जाते. जर एका कॉलमची व्हॅल्यू खूप मोठी असेल तर तो मॉडेलवर जास्त प्रभाव टाकतो. म्हणून सर्व फीचर्स समान प्रमाणात आणण्यासाठी स्केलिंग आवश्यक असते.
-
-**Q3. What is a Confusion Matrix?**
-- **English Answer:** A table used to evaluate classification performance containing True Positives (TP), True Negatives (TN), False Positives (FP), and False Negatives (FN).
-
----
-
-### 🔹 Practical 6: Regression Analysis
-**Q1. What is the limitation of Linear Regression that Polynomial Regression solves?**
-- **English Answer:** Linear Regression can only model straight-line (linear) relationships between dependent and independent variables. Polynomial Regression fits non-linear relationships by introducing higher-degree terms ($x^2, x^3$).
-- **मराठी उत्तर:** लिनिअर रिग्रेशन फक्त सरळ रेषेतील संबंध दर्शवू शकते. जर डेटा वक्राकार किंवा नॉन-लिनिअर असेल, तर पॉलिइनॉमिअल रिग्रेशन अचूक अंदाज बांधतो.
-
-**Q2. What does the $R^2$ score represent?**
-- **English Answer:** The Coefficient of Determination ($R^2$) represents the proportion of variance in the dependent variable that is predictable from the independent variables (1.0 indicates perfect prediction).
-- **मराठी उत्तर:** $R^2$ स्कोअर दर्शवतो की मॉडेलने डेटाचा किती टक्के फरक (Variance) अचूकपणे स्पष्ट केला आहे. १.० म्हणजे सर्वोत्तम मॉडेल.
-
----
+### 🔹 Practical 6: Regression Analysis (Linear vs Polynomial)
+- **Q1: Why choose Polynomial Regression over simple Linear Regression?**
+  - **Answer:** Linear Regression models straight-line relationships ($y = mx + c$). If the underlying relationship is non-linear or curved, Linear Regression underfits. Polynomial Regression introduces higher-degree terms ($x^2, x^3$) to map non-linear trends.
+- **Q2: What is the $R^2$ Score (Coefficient of Determination)?**
+  - **Answer:** $R^2 = 1 - \frac{SS_{\text{res}}}{SS_{\text{tot}}}$. It quantifies the proportion of variance in the dependent variable explained by independent features. An $R^2$ of 1.0 indicates a perfect fit.
 
 ### 🔹 Practical 7: Clustering (K-Means & Hierarchical)
-**Q1. What is Unsupervised Learning?**
-- **English Answer:** Learning from input data that does not have predefined labeled targets or ground truth; discovering inherent patterns or groupings.
-- **मराठी उत्तर:** ज्या डेटामध्ये पूर्वीपासून लेबल्स किंवा उत्तरे दिलेली नसतात, त्यातील नमुने किंवा गट शोधणे म्हणजे अनसुपरव्हाइझ्ड लर्निंग.
+- **Q1: What is Unsupervised Learning?**
+  - **Answer:** Machine learning where the model is provided with unlabeled inputs without predefined target outcomes. The model discovers natural clusters, patterns, and groupings within the data.
+- **Q2: How does the Elbow Method determine optimal $K$ in K-Means?**
+  - **Answer:** It computes Within-Cluster Sum of Squares (WCSS / inertia) for various values of $K$. As $K$ increases, WCSS decreases. The point where the rate of decrease forms an acute bend (like an elbow) represents the optimal balance of compact clusters without overfitting.
+- **Q3: What is a Dendrogram?**
+  - **Answer:** A tree diagram representing hierarchical clustering steps. The vertical axis denotes distance/dissimilarity between clusters; horizontal cuts define cluster groups.
 
-**Q2. How do you determine the optimal number of clusters in K-Means?**
-- **English Answer:** Using the **Elbow Method**: plot the Within-Cluster Sum of Squares (WCSS/inertia) against varying values of $K$. The point where the rate of decrease abruptly bends (like an elbow) is chosen as optimal $K$.
-- **मराठी उत्तर:** एल्बो पद्धतीमध्ये (Elbow Method) वेगवेगळ्या क्लस्टर्ससाठी WCSS चे आलेख काढले जातात. ज्या ठिकाणी आलेखाचा उतार कोपऱ्यासारखा (Elbow) वाकतो, तो सर्वोत्तम $K$ मानला जातो.
-
-**Q3. What is a Dendrogram?**
-- **English Answer:** A tree diagram used in hierarchical clustering that illustrates the arrangement of clusters produced at each step of merging.
-- **मराठी उत्तर:** डेंड्रोग्राम म्हणजे हायराक्रिकल क्लस्टरिंगमधील झाडासारखा आलेख (Tree Diagram) जो दर्शवतो की कोणकोणते बिंदू एकत्र आले आहेत.
-
----
-
-### 🔹 Practical 8: PCA & Dimensionality Reduction
-**Q1. What is the Curse of Dimensionality?**
-- **English Answer:** As the number of features/dimensions grows, the volume of feature space increases exponentially, making the data sparse. This causes models to overfit, increases computational cost, and degrades distance metrics.
-- **मराठी उत्तर:** जेव्हा वैशिष्ट्यांची (Features) संख्या खूप वाढते, तेव्हा मॉडेल हळू होते, जास्त मेमरी लागते आणि अचूकता कमी होते, याला कर्स ऑफ डायमेंशनालिटी म्हणतात.
-
-**Q2. How does Principal Component Analysis (PCA) work?**
-- **English Answer:** PCA projects high-dimensional data onto orthogonal axes (Principal Components) of maximum variance using eigenvalues and eigenvectors of the covariance matrix.
-- **मराठी उत्तर:** PCA जास्त व्हेरियन्स (माहिती) असणाऱ्या मुख्य अक्षांवर डेटा प्रोजेक्ट करतो, ज्यामुळे अनावश्यक कॉलम कमी होतात आणि महत्त्वाची माहिती टिकून राहते.
-
----
+### 🔹 Practical 8: Dimensionality Reduction (PCA & SVM)
+- **Q1: What is the "Curse of Dimensionality"?**
+  - **Answer:** As feature dimensions grow large, data points become sparse in high-dimensional space. Models require exponentially more data to generalize, computational latency spikes, and distance metrics degrade.
+- **Q2: How does Principal Component Analysis (PCA) work?**
+  - **Answer:** PCA standardizes the data, calculates the covariance matrix, determines its eigenvectors (principal axes) and eigenvalues (variance magnitude), and rotates/projects the dataset onto orthogonal axes that maximize explained variance.
 
 ### 🔹 Practical 9: Ensemble Learning & Hyperparameter Tuning
-**Q1. What is Ensemble Learning? What is the difference between Bagging and Boosting?**
-- **English Answer:**
-  - **Ensemble Learning:** Combining multiple models (weak learners) to produce a stronger, more generalized predictor.
-  - **Bagging (Bootstrap Aggregating, e.g., Random Forest):** Trains multiple models independently in parallel on random subsets of data and averages their votes to reduce variance.
-  - **Boosting (e.g., AdaBoost):** Trains models sequentially, where each new model focuses on correcting the errors of previous models to reduce bias.
-- **मराठी उत्तर:**
-  - एकापेक्षा जास्त मॉडेल्स एकत्र करून अधिक अचूक मॉडेल बनवणे म्हणजे एन्सेम्बल लर्निंग.
-  - **बॅगिंग (Random Forest):** अनेक मॉडेल्स स्वतंत्रपणे समांतर शिकवले जातात.
-  - **बूस्टिंग (AdaBoost):** मॉडेल्स एकामागून एक शिकवले जातात आणि पुढील मॉडेल मागील मॉडेलच्या चुका सुधारते.
+- **Q1: What is Ensemble Learning? What is the difference between Bagging and Boosting?**
+  - **Answer:** Combining multiple individual models (weak learners) to construct a stronger, more accurate predictor.
+    - **Bagging (e.g., Random Forest):** Trains multiple models in parallel on random bootstrap subsets of data and averages predictions to reduce variance (overfitting).
+    - **Boosting (e.g., AdaBoost):** Trains models sequentially; each subsequent learner places higher sample weights on mistakes made by earlier learners to reduce bias.
+- **Q2: What is GridSearchCV and why is K-Fold Cross-Validation used?**
+  - **Answer:** `GridSearchCV` searches across all specified combinations of hyperparameters for an estimator. $K$-fold cross-validation divides data into $K$ subsets, training on $K-1$ and validating on the remaining 1, ensuring parameters perform robustly on unseen data.
 
-**Q2. What is GridSearchCV and why is Cross-Validation used?**
-- **English Answer:** `GridSearchCV` exhaustively tests all specified combinations of hyperparameters for an estimator. Cross-Validation (e.g., 5-Fold) splits training data into $K$ partitions, ensuring hyperparameter selection generalizes well without overfitting to one split.
-- **मराठी उत्तर:** ग्रिड सर्च सर्व दिलेल्या पॅरामीटर्सच्या जोड्या तपासून सर्वोत्तम जोडी निवडतो. क्रॉस-व्हॅलिडेशनमुळे मॉडेल एकाच डेटावर ओव्हरफिट होत नाही.
+---
+---
+
+# 📙 भाग २: संपूर्ण मराठी मार्गदर्शिका
+
+## १. प्रणाली परिचय आणि लिनक्स सुसंगतता
+या रिपॉझिटरीमध्ये **AIML लॅब प्रॅक्टिकल्स (२ ते ९)** चे संपूर्ण आणि अचूक पायथन कोड दिलेले आहेत.
+
+हा कोड **लिनक्स आणि कॉलेज कॉम्प्युटरसाठी** विशेष अनुकूल केला आहे:
+- **कॉलेज लॅब लिनक्स पीसी (Ubuntu/Debian):** कॉलेज लॅबमधील संगणकावर डेटासेट्स आधीपासूनच `/home/avcoe/` मध्ये असतात. हा कोड कोणत्याही बदलांशिवाय थेट तिथे चालतो.
+- **घरचा लॅपटॉप / कॉम्प्युटर:** जर तुम्ही लॅपटॉपवर कोड चालवत असाल, तर तो या रिपॉझिटरीमधील `datasets/` फोल्डरमधून सर्व डेटासेट्स आपोआप लोड करतो.
 
 ---
 
-## 📁 Repository Structure (फायलींची रचना)
+## २. लिनक्स टर्मिनल कमांड्स (सेटअप व एक्झिक्युशन)
+
+### पायरी १: लिनक्स टर्मिनल उघडा आणि प्रोजेक्ट क्लोन करा
+लिनक्स टर्मिनल उघडा (शॉर्टकट: `Ctrl + Alt + T`):
+```bash
+git clone https://github.com/PrashilD15/aiml.git
+cd aiml
+```
+
+### पायरी २: `python3-pip` द्वारे लायब्ररी इन्स्टॉल करा
+लिनक्समध्ये `python3` वापरून सर्व लायब्ररी इन्स्टॉल करा:
+```bash
+python3 -m pip install -r requirements.txt
+```
+*(किंवा मॅन्युअली इन्स्टॉल करा:)*
+```bash
+python3 -m pip install pandas scikit-learn matplotlib seaborn numpy scipy
+```
+
+### पायरी ३: प्रॅक्टिकल रन करा
+लिनक्स टर्मिनलमध्ये `python3` वापरून खालीलप्रमाणे प्रॅक्टिकल्स चालवा:
+
+```bash
+# प्रॅक्टिकल २: रूट प्लॅनिंग (BFS आणि DFS)
+python3 Practical_02_Route_Planning_BFS_DFS.py
+# (किंवा शॉर्टकट): python3 2.py
+
+# प्रॅक्टिकल ३: एक्सपर्ट सिस्टीम (फॉरवर्ड आणि बॅकवर्ड चेनिंग)
+python3 Practical_03_Rule_Based_Expert_System.py
+# (किंवा शॉर्टकट): python3 3.py
+
+# प्रॅक्टिकल ४: डेटा प्रीप्रोसेसिंग आणि ट्रेन-टेस्ट स्प्लिट
+python3 Practical_04_Data_Preprocessing_EDA.py
+# (किंवा शॉर्टकट): python3 4.py
+
+# प्रॅक्टिकल ५: क्लासिफिकेशन (Logistic Regression आणि KNN)
+python3 Practical_05_Classification_Logistic_KNN.py
+# (किंवा शॉर्टकट): python3 5.py
+
+# प्रॅक्टिकल ६: रिग्रेशन ॲनालिसिस (लिनिअर आणि पॉलिइनॉमिअल)
+python3 Practical_06_Regression_Linear_Polynomial.py
+# (किंवा शॉर्टकट): python3 6.py
+
+# प्रॅक्टिकल ७: क्लस्टरिंग (के-मीन्स आणि डेंड्रोग्राम)
+python3 Practical_07_Clustering_KMeans_Hierarchical.py
+# (किंवा शॉर्टकट): python3 7.py
+
+# प्रॅक्टिकल ८: डायमेंशनॅलिटी रिडक्शन (PCA सह SVM)
+python3 Practical_08_PCA_Dimensionality_Reduction.py
+# (किंवा शॉर्टकट): python3 8.py
+
+# प्रॅक्टिकल ९: एन्सेम्बल लर्निंग आणि GridSearchCV
+python3 Practical_09_Ensemble_Learning_GridSearchCV.py
+# (किंवा शॉर्टकट): python3 9.py
+```
+
+---
+
+## ३. सर्व प्रॅक्टिकल्सची सविस्तर माहिती
+
+| प्रॅक्टिकल | फाईलचे पूर्ण नाव | शॉर्ट नाव | डेटासेट | वापरलेला अल्गोरिदम / तंत्रज्ञान |
+| :---: | :--- | :---: | :---: | :--- |
+| **०२** | [`Practical_02_Route_Planning_BFS_DFS.py`](Practical_02_Route_Planning_BFS_DFS.py) | `2.py` | आलेखाचा डेटा | Breadth-First Search (BFS) व Depth-First Search (DFS) |
+| **०३** | [`Practical_03_Rule_Based_Expert_System.py`](Practical_03_Rule_Based_Expert_System.py) | `3.py` | वैद्यकीय नियम | फॉरवर्ड चेनिंग (Forward) व बॅकवर्ड चेनिंग (Backward) |
+| **०४** | [`Practical_04_Data_Preprocessing_EDA.py`](Practical_04_Data_Preprocessing_EDA.py) | `4.py` | `heart.csv` | डेटा क्लीनिंग, मिसिंग व्हॅल्यू भरणे व ८०:२० ट्रेन-टेस्ट स्प्लिट |
+| **०५** | [`Practical_05_Classification_Logistic_KNN.py`](Practical_05_Classification_Logistic_KNN.py) | `5.py` | `Admission_Predict.csv` | लॉजिस्टीक रिग्रेशन (Logistic) व के-निअरेस्ट नेबर्स (KNN) |
+| **०६** | [`Practical_06_Regression_Linear_Polynomial.py`](Practical_06_Regression_Linear_Polynomial.py) | `6.py` | `Housing.csv` | लिनिअर रिग्रेशन विरुद्ध पॉलिइनॉमिअल रिग्रेशन (डिग्री २) |
+| **०७** | [`Practical_07_Clustering_KMeans_Hierarchical.py`](Practical_07_Clustering_KMeans_Hierarchical.py) | `7.py` | `Mall_Customers.csv` | के-मीन्स (एल्बो पद्धत) व हायराक्रिकल क्लस्टरिंग (डेंड्रोग्राम) |
+| **०८** | [`Practical_08_PCA_Dimensionality_Reduction.py`](Practical_08_PCA_Dimensionality_Reduction.py) | `8.py` | `wdbc.csv` | प्रिन्सिपल कॉम्पोनंट ॲनालिसिस (PCA) व सपोर्ट व्हेक्टर मशीन (SVM) |
+| **०९** | [`Practical_09_Ensemble_Learning_GridSearchCV.py`](Practical_09_Ensemble_Learning_GridSearchCV.py) | `9.py` | `breast_cancer.csv` | रँडम फॉरेस्ट, ॲडाबूस्ट व SVM यांचे GridSearchCV द्वारे ट्युनिंग |
+
+---
+
+## ४. तोंडी परीक्षा (Oral / Viva Voce) प्रश्न आणि उत्तरे (मराठी)
+
+### 🔹 प्रॅक्टिकल २: BFS आणि DFS रूट प्लॅनिंग
+- **प्रश्न १: BFS आणि DFS मधील मुख्य फरक काय आहे?**
+  - **उत्तर:** BFS मध्ये रांगेचा (Queue - FIFO) वापर करून लेव्हलनुसार शोध घेतला जातो, ज्यामुळे सर्वात लहान मार्ग मिळतो. DFS मध्ये स्टॅकचा (Stack - LIFO) वापर करून एकाच शाखेत खोलवर जाऊन शेवटपर्यंत शोध घेतला जातो.
+- **प्रश्न २: BFS नेहमी सर्वात कमी अंतराचा मार्ग देतो का?**
+  - **उत्तर:** होय, पण फक्त अनवेटेड (Unweighted) आलेखासाठी. जर कडांना वजन (Weights) असेल, तर डायक्स्ट्रा किंवा A* अल्गोरिदम वापरावा लागतो.
+- **प्रश्न ३: BFS आणि DFS ची मेमरी कपॅसिटी कशी असते?**
+  - **उत्तर:** BFS ला जास्त मेमरी लागते कारण एका लेव्हलचे सर्व नोड्स Queue मध्ये साठवावे लागतात ($\mathcal{O}(V)$). DFS ला कमी मेमरी लागते ($\mathcal{O}(d)$).
+
+### 🔹 प्रॅक्टिकल ३: एक्सपर्ट सिस्टीम आणि चेनिंग
+- **प्रश्न १: फॉरवर्ड चेनिंग आणि बॅकवर्ड चेनिंग मधील फरक सांगा.**
+  - **उत्तर:**
+    - **फॉरवर्ड चेनिंग (डेटा-ड्रिव्हन):** आधीपासून माहीत असलेल्या तथ्यांवरून/माहितीवरून सुरुवात करून निष्कर्षापर्यंत जाते.
+    - **बॅकवर्ड चेनिंग (गोल-ड्रिव्हन):** अंतिम निष्कर्षापासून सुरुवात करून तो सिद्ध करण्यासाठी मागील माहिती शोधते.
+- **प्रश्न २: एक्सपर्ट सिस्टीमचे मुख्य भाग कोणते?**
+  - **उत्तर:** १. नॉलेज बेस (नियम व माहिती), २. इन्फरन्स इंजिन (निर्णय घेणारा मेंदू), ३. युजर इंटरफेस.
+
+### 🔹 प्रॅक्टिकल ४: डेटा प्रीप्रोसेसिंग आणि EDA
+- **प्रश्न १: डेटा प्रीप्रोसेसिंग का गरजेचे आहे?**
+  - **उत्तर:** कच्च्या डेटामध्ये अनेक त्रुटी, गहाळ माहिती आणि विसंगती असतात. जर चुकीचा डेटा मॉडेलला दिला, तर मॉडेल चुकीचे अंदाज बांधते (Garbage in, Garbage out). म्हणूनच डेटा साफ करणे आवश्यक आहे.
+- **प्रश्न २: मिसिंग व्हॅल्यू भरताना Mean ऐवजी Median कधी वापरावा?**
+  - **उत्तर:** जेव्हा डेटामध्ये टोकाचे आकडे (Outliers) असतात, तेव्हा **Median (मध्यक)** वापरावा, कारण आउटलायर्सचा मीडियनवर परिणाम होत नाही.
+- **प्रश्न ३: डेटा ट्रेन आणि टेस्ट सेटमध्ये का विभागतात?**
+  - **उत्तर:** मॉडेल नवीन डेटामधून अचूक अंदाज बांधू शकते का (Generalization) हे तपासण्यासाठी आणि मॉडेल ओव्हरफिट होत नाही ना हे पाहण्यासाठी.
+
+### 🔹 प्रॅक्टिकल ५: वर्गीकरण (लॉजिस्टीक रिग्रेशन आणि KNN)
+- **प्रश्न १: लॉजिस्टीक रिग्रेशन हा रिग्रेशन अल्गोरिदम आहे की क्लासिफिकेशन?**
+  - **उत्तर:** नावात रिग्रेशन असले तरी हा **क्लासिफिकेशन (वर्गीकरण)** अल्गोरिदम आहे. तो सिग्मॉइड फंक्शनद्वारे संभाव्यता (Probability) मोजून ० किंवा १ मध्ये वर्गीकरण करतो.
+- **प्रश्न २: KNN साठी डेटा स्केलिंग (StandardScaler) का आवश्यक आहे?**
+  - **उत्तर:** KNN बिंदूंमधील अंतर (Euclidean Distance) मोजतो. जर एका कॉलमची व्हॅल्यू खूप मोठी आणि दुसऱ्याची लहान असेल, तर मोठा कॉलम अंतरावर जास्त प्रभाव टाकतो. सर्व कॉलम्सना समान महत्त्व देण्यासाठी स्केलिंग आवश्यक आहे.
+- **प्रश्न ३: प्रिसिजन, रिकॉल आणि F1-स्कोअर म्हणजे काय?**
+  - **उत्तर:**
+    - **प्रिसिजन (Precision):** मॉडेलने पॉझिटिव्ह ठरवलेल्यांपैकी किती खरोखर पॉझिटिव्ह आहेत.
+    - **रिकॉल (Recall):** खरोखर असलेल्या पॉझिटिव्हपैकी मॉडेलने किती बरोबर ओळखले.
+    - **F1-स्कोअर:** प्रिसिजन आणि रिकॉलचा सुवर्णमध्य (Harmonic Mean).
+
+### 🔹 प्रॅक्टिकल ६: रिग्रेशन ॲनालिसिस
+- **प्रश्न १: लिनिअर रिग्रेशनऐवजी पॉलिइनॉमिअल रिग्रेशन का वापरतात?**
+  - **उत्तर:** लिनिअर रिग्रेशन फक्त सरळ रेषेतील संबंध दाखवू शकते. जर डेटा वक्राकार (Curved/Non-linear) असेल, तर पॉलिइनॉमिअल रिग्रेशन उच्च घातांक ($x^2, x^3$) जोडून अचूक अंदाज देतो.
+- **प्रश्न २: $R^2$ स्कोअर काय दर्शवतो?**
+  - **उत्तर:** मॉडेलने डेटाचा किती टक्के फरक अचूक ओळखला आहे ते $R^2$ स्कोअर सांगतो. १.० म्हणजे १००% अचूक मॉडेल.
+
+### 🔹 प्रॅक्टिकल ७: क्लस्टरिंग (के-मीन्स आणि हायराक्रिकल)
+- **प्रश्न १: अनसुपरव्हाइझ्ड लर्निंग म्हणजे काय?**
+  - **उत्तर:** ज्या डेटामध्ये पूर्वीपासून लेबल्स किंवा उत्तरे दिलेली नसतात, त्यातील नमुने किंवा गट (Clusters) शोधणे म्हणजे अनसुपरव्हाइझ्ड लर्निंग.
+- **प्रश्न २: K-Means मध्ये योग्य $K$ कसा निवडतात?**
+  - **उत्तर:** **एल्बो पद्धतीद्वारे (Elbow Method)**. वेगवेगळ्या $K$ व्हॅल्यूजसाठी त्रुटींचा (WCSS) आलेख काढला जातो. ज्या ठिकाणी आलेखाचा उतार कोपऱ्यासारखा (Elbow) वाकतो, तो सर्वोत्तम $K$ असतो.
+- **प्रश्न ३: डेंड्रोग्राम (Dendrogram) म्हणजे काय?**
+  - **उत्तर:** हायराक्रिकल क्लस्टरिंगमधील झाडासारखा आलेख, जो दाखवतो की बिंदू किंवा क्लस्टर्स एकमेकांशी किती अंतरावर एकत्र जोडले गेले आहेत.
+
+### 🔹 प्रॅक्टिकल ८: डायमेंशनॅलिटी रिडक्शन (PCA आणि SVM)
+- **प्रश्न १: कर्स ऑफ डायमेंशनॅलिटी (Curse of Dimensionality) म्हणजे काय?**
+  - **उत्तर:** जेव्हा कॉलम्सची (वैशिष्ट्यांची) संख्या खूप वाढते, तेव्हा डेटा विरळ होतो, मॉडेल स्लो होते, जास्त मेमरी लागते आणि अचूकता कमी होते. या समस्येला कर्स ऑफ डायमेंशनॅलिटी म्हणतात.
+- **प्रश्न २: PCA कसे काम करते?**
+  - **उत्तर:** PCA मूळ डेटाचे कोव्हेरियन्स आणि आयगेन-व्हॅल्यूज काढून डेटा अशा अक्षांवर प्रोजेक्ट करतो जिथे जास्तीत जास्त माहिती (Variance) टिकून राहील आणि कॉलमची संख्या कमी होईल.
+
+### 🔹 प्रॅक्टिकल ९: एन्सेम्बल लर्निंग आणि ट्युनिंग
+- **प्रश्न १: बॅगिंग (Bagging) आणि बूस्टिंग (Boosting) मध्ये काय फरक आहे?**
+  - **उत्तर:**
+    - **बॅगिंग (उदा. Random Forest):** अनेक डिसिजन ट्री मॉडेल्स स्वतंत्रपणे आणि समांतर चालवले जातात आणि बहुमताने निर्णय घेतला जातो (Overfitting कमी होते).
+    - **बूस्टिंग (उदा. AdaBoost):** मॉडेल्स एकामागून एक चालवले जातात आणि पुढील मॉडेल मागील मॉडेलच्या चुका सुधारण्यावर भर देते (Bias कमी होतो).
+- **प्रश्न २: GridSearchCV काय करते?**
+  - **उत्तर:** ग्रिड सर्च दिलेल्या सर्व पॅरामीटर्सच्या सर्व संभाव्य जोड्या तपासून आणि ५-Fold क्रॉस-व्हॅलिडेशन करून सर्वोत्तम अचूकता देणारी जोडी शोधून काढते.
+
+---
+
+## 📁 फोल्डर रचना (Directory Layout)
 
 ```
 aiml/
 │
-├── 2.py / practical_02_bfs_dfs.py                          # Practical 2
-├── 3.py / practical_03_expert_system.py                    # Practical 3
-├── 4.py / practical_04_data_preprocessing.py               # Practical 4
-├── 5.py / practical_05_classification_logistic_knn.py      # Practical 5
-├── 6.py / practical_06_regression_linear_poly.py           # Practical 6
-├── 7.py / practical_07_clustering_kmeans_hierarchical.py   # Practical 7
-├── 8.py / practical_08_pca_dimensionality_reduction.py     # Practical 8
-├── 9.py / practical_09_ensemble_hyperparameter_tuning.py   # Practical 9
+├── Practical_02_Route_Planning_BFS_DFS.py          (किंवा 2.py)
+├── Practical_03_Rule_Based_Expert_System.py        (किंवा 3.py)
+├── Practical_04_Data_Preprocessing_EDA.py          (किंवा 4.py)
+├── Practical_05_Classification_Logistic_KNN.py     (किंवा 5.py)
+├── Practical_06_Regression_Linear_Polynomial.py    (किंवा 6.py)
+├── Practical_07_Clustering_KMeans_Hierarchical.py  (किंवा 7.py)
+├── Practical_08_PCA_Dimensionality_Reduction.py    (किंवा 8.py)
+├── Practical_09_Ensemble_Learning_GridSearchCV.py  (किंवा 9.py)
 │
-├── datasets/                                               # Datasets for Laptop/PC
+├── datasets/                                       # लॅपटॉपसाठी डेटासेट्स
 │   ├── heart.csv
 │   ├── Admission_Predict.csv
 │   ├── Housing.csv
@@ -309,13 +340,13 @@ aiml/
 │   ├── wdbc.csv
 │   └── breast_cancer.csv
 │
-├── requirements.txt                                        # Dependencies
+├── requirements.txt                                # लायब्ररी आवश्यकता
 ├── .gitignore
-└── README.md                                               # Documentation (English & Marathi)
+└── README.md                                       # इंग्रजी व मराठी मार्गदर्शिका
 ```
 
 ---
 
-## 👨‍💻 Author & Contributions
+## 👨‍💻 Author
 - **Prashil Dalvi** ([@PrashilD15](https://github.com/PrashilD15))
 - Amrutvahini College of Engineering, Sangamner (AVCOE)
