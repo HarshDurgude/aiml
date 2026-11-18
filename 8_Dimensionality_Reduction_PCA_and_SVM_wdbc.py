@@ -1,43 +1,89 @@
-# Practical 8: Dimensionality Reduction using PCA with SVM
-import os
+# PR8: Dimensionality Reduction using PCA
+
 import pandas as pd
-from sklearn.decomposition import PCA
-from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
 
-# 1. Load Dataset
-path = "/home/avcoe/wdbc.csv" if os.path.exists("/home/avcoe/wdbc.csv") else "datasets/wdbc.csv"
-df = pd.read_csv(path)
-if 'id' in df.columns:
-    df = df.drop('id', axis=1)
+from sklearn.decomposition import PCA
+from sklearn.linear_model import LogisticRegression
 
-X = df.drop("diagnosis", axis=1)
-y = df["diagnosis"]
+from sklearn.metrics import accuracy_score
 
-# 2. Standardization & Split
+# Load Dataset
+data = pd.read_csv("wdbc.csv")
+
+print("First 5 Rows:")
+print(data.head())
+
+# Remove Duplicates
+data = data.drop_duplicates()
+
+# Separate Features and Target
+X = data.drop("diagnosis", axis=1)
+
+y = data["diagnosis"].map({
+    "M": 1,
+    "B": 0
+})
+
+print("\nFeatures Before PCA:", X.shape[1])
+
+# Split Dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2,
+    random_state=42, stratify=y
+)
+
+# Feature Scaling
 scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42, stratify=y)
 
-# 3. SVM Classifier BEFORE PCA
-svm_before = SVC(kernel="rbf")
-svm_before.fit(X_train, y_train)
-acc_before = accuracy_score(y_test, svm_before.predict(X_test))
+X_train = scaler.fit_transform(X_train)
 
-# 4. Apply PCA (Retaining 95% Variance)
-pca = PCA(n_components=0.95)
+X_test = scaler.transform(X_test)
+
+# Classification Before PCA
+model = LogisticRegression(max_iter=1000)
+
+model.fit(X_train, y_train)
+
+pred1 = model.predict(X_test)
+
+print("\nAccuracy Before PCA:", accuracy_score(y_test, pred1))
+
+# Apply PCA
+pca = PCA(n_components=2)
+
 X_train_pca = pca.fit_transform(X_train)
+
 X_test_pca = pca.transform(X_test)
 
-# 5. SVM Classifier AFTER PCA
-svm_after = SVC(kernel="rbf")
-svm_after.fit(X_train_pca, y_train)
-acc_after = accuracy_score(y_test, svm_after.predict(X_test_pca))
+print("\nFeatures After PCA:", X_train_pca.shape[1])
 
-# 6. Summary Comparison
-print("--- PCA DIMENSIONALITY REDUCTION SUMMARY ---")
-print(f"Features Before PCA : {X.shape[1]}  --> Accuracy: {acc_before * 100:.2f}%")
-print(f"Features After PCA  : {X_train_pca.shape[1]}  --> Accuracy: {acc_after * 100:.2f}%")
-print(f"Total Variance Kept : {pca.explained_variance_ratio_.sum() * 100:.2f}%")
+# Classification After PCA
+model2 = LogisticRegression(max_iter=1000)
+
+model2.fit(X_train_pca, y_train)
+
+pred2 = model2.predict(X_test_pca)
+
+print("Accuracy After PCA:", accuracy_score(y_test, pred2))
+
+# PCA Visualization
+plt.scatter(
+    X_train_pca[:, 0],
+    X_train_pca[:, 1],
+    c=y_train,
+    cmap="viridis"
+)
+
+plt.title("PCA Visualization")
+
+plt.xlabel("Principal Component 1")
+
+plt.ylabel("Principal Component 2")
+
+plt.show()
+
+print("\nPCA Completed Successfully!")

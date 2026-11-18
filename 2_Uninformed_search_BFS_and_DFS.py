@@ -1,50 +1,58 @@
-# Practical 2: Route Planning using BFS and DFS
-from collections import deque
+# BFS and DFS Program
 
-# Graph representation as adjacency list
 graph = {
     'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': [],
+    'F': []
 }
 
+# Breadth First Search
+def BFS(start, goal):
+    queue = [start]
+    visited = []
 
-# Breadth-First Search (Queue - FIFO)
-def bfs(start, goal):
-    queue = deque([[start]])
-    visited = {start}
     while queue:
-        path = queue.popleft()
-        node = path[-1]
-        if node == goal:
-            return path
-        for neighbor in graph.get(node, []):
-            if neighbor not in visited:
-                visited.add(neighbor)
-                queue.append(path + [neighbor])
-    return None
+        node = queue.pop(0)
 
-
-# Depth-First Search (Stack - LIFO)
-def dfs(start, goal):
-    stack = [[start]]
-    visited = set()
-    while stack:
-        path = stack.pop()
-        node = path[-1]
         if node not in visited:
-            visited.add(node)
+            visited.append(node)
+
             if node == goal:
-                return path
-            for neighbor in reversed(graph.get(node, [])):
-                if neighbor not in visited:
-                    stack.append(path + [neighbor])
-    return None
+                return visited
+
+            queue.extend(graph[node])
+
+    return visited
 
 
-if __name__ == "__main__":
-    print("BFS Shortest Path (A to F):", bfs('A', 'F'))
-    print("DFS Path          (A to F):", dfs('A', 'F'))
+# Depth First Search
+def DFS(start, goal):
+    stack = [start]
+    visited = []
+
+    while stack:
+        node = stack.pop()
+
+        if node not in visited:
+            visited.append(node)
+
+            if node == goal:
+                return visited
+
+            stack.extend(reversed(graph[node]))
+
+    return visited
+
+
+# Main Program
+start = input("Enter starting node: ").upper()
+goal = "F"
+
+if start not in graph or goal not in graph:
+    print("Invalid node")
+else:
+    print("BFS:", BFS(start, goal))
+    print("DFS:", DFS(start, goal))

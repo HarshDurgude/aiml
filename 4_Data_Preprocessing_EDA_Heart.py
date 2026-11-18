@@ -1,46 +1,70 @@
-# Practical 4: Data Preprocessing, EDA and Train-Test Split
-import os
-import matplotlib.pyplot as plt
+# PR4: Data Preprocessing and EDA
+
 import pandas as pd
+import matplotlib.pyplot as plt
 import seaborn as sns
+
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
-# 1. Load Dataset (checks college PC path or local datasets/ folder)
-path = "/home/avcoe/heart.csv" if os.path.exists("/home/avcoe/heart.csv") else "datasets/heart.csv"
-df = pd.read_csv(path)
+# Load CSV Dataset
+data = pd.read_csv("heart.csv")
 
-# 2. Data Overview & Preprocessing
-print("Dataset Shape:", df.shape)
-print("\nMissing Values Before Handling:\n", df.isnull().sum())
+print("First 5 Rows:")
+print(data.head())
 
-# Fill missing Age with median & drop duplicate records
-if 'age' in df.columns:
-    df['age'] = df['age'].fillna(df['age'].median())
-df = df.drop_duplicates()
-print("\nShape after removing duplicates:", df.shape)
+# 1. Data Cleaning
+print("\nDataset Shape:", data.shape)
 
-# 3. Statistical Analysis
-print("\n--- Summary Statistics ---")
-print("Mean:\n", df.mean(numeric_only=True))
-print("\nCorrelation:\n", df.corr(numeric_only=True))
+data = data.drop_duplicates()
 
-# 4. Data Visualization (Histogram & Boxplot)
-plt.figure(figsize=(10, 4))
-plt.subplot(1, 2, 1)
-plt.hist(df['age'], bins=15, edgecolor='black')
-plt.title("Age Distribution")
+print("After Removing Duplicates:", data.shape)
 
-plt.subplot(1, 2, 2)
-sns.boxplot(x=df['chol'])
-plt.title("Cholesterol Boxplot")
+# 2. Missing Value Handling
+print("\nMissing Values:")
+print(data.isnull().sum())
+
+data = data.fillna(data.mean())
+
+print("\nMissing Values Handled")
+
+# 3. Encoding
+print("\nEncoding: Data is already encoded")
+
+# 4. Statistical Analysis
+print("\nStatistical Analysis:")
+print(data.describe())
+
+# 5. Separate Features and Target
+X = data.drop("target", axis=1)
+y = data["target"]
+
+# 6. Split Dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# 7. Feature Scaling
+scaler = StandardScaler()
+
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+print("\nTraining Data:", X_train.shape)
+print("Testing Data:", X_test.shape)
+
+# 8. Histogram
+data.hist(figsize=(12, 10))
+plt.suptitle("Heart Disease Dataset - Histograms")
 plt.tight_layout()
 plt.show()
 
-# 5. Train-Test Split (80:20)
-X = df.drop('target', axis=1)
-y = df['target']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# 9. Boxplot
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=data.drop("target", axis=1))
+plt.title("Heart Disease Dataset - Boxplot")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
 
-print("\n--- Split Shapes ---")
-print(f"X_train: {X_train.shape}, X_test: {X_test.shape}")
-print(f"y_train: {y_train.shape}, y_test: {y_test.shape}")
+print("\nData Preprocessing Completed Successfully!")
