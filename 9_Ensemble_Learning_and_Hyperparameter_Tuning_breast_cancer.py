@@ -8,7 +8,7 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.svm import SVC
 
 # 1. Load Dataset
-path = "/home/avcoe/breast_cancer.csv" if os.path.exists("/home/avcoe/breast_cancer.csv") else "datasets/breast_cancer.csv"
+path = "breast_cancer.csv"
 if os.path.exists(path):
     df = pd.read_csv(path)
     X, y = df.drop(columns=["target"]), df["target"]
