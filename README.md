@@ -47,53 +47,45 @@ python3 -m pip install pandas scikit-learn matplotlib seaborn numpy scipy
 Execute scripts using Linux `python3`:
 
 ```bash
-# Practical 2: Route Planning (BFS & DFS)
-python3 Practical_02_Route_Planning_BFS_DFS.py
-# (Alternative short command): python3 2.py
+# Practical 2: Route Planning using BFS & DFS
+python3 Practical_02_Route_Planning_BFS_and_DFS.py
 
 # Practical 3: Rule-Based Expert System (Forward & Backward Chaining)
 python3 Practical_03_Rule_Based_Expert_System.py
-# (Alternative short command): python3 3.py
 
 # Practical 4: Data Preprocessing, EDA & Train-Test Split
-python3 Practical_04_Data_Preprocessing_EDA.py
-# (Alternative short command): python3 4.py
+python3 Practical_04_Data_Preprocessing_and_EDA.py
 
 # Practical 5: Classification using Logistic Regression & KNN
-python3 Practical_05_Classification_Logistic_KNN.py
-# (Alternative short command): python3 5.py
+python3 Practical_05_Classification_Logistic_and_KNN.py
 
 # Practical 6: Regression Analysis (Linear vs Polynomial)
-python3 Practical_06_Regression_Linear_Polynomial.py
-# (Alternative short command): python3 6.py
+python3 Practical_06_Regression_Linear_and_Polynomial.py
 
-# Practical 7: Clustering (K-Means & Hierarchical Dendrogram)
-python3 Practical_07_Clustering_KMeans_Hierarchical.py
-# (Alternative short command): python3 7.py
+# Practical 7: Customer Segmentation Clustering (K-Means & Hierarchical)
+python3 Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py
 
 # Practical 8: Dimensionality Reduction using PCA with SVM
-python3 Practical_08_PCA_Dimensionality_Reduction.py
-# (Alternative short command): python3 8.py
+python3 Practical_08_Dimensionality_Reduction_PCA_and_SVM.py
 
 # Practical 9: Model Optimization, Ensemble Learning & GridSearchCV
-python3 Practical_09_Ensemble_Learning_GridSearchCV.py
-# (Alternative short command): python3 9.py
+python3 Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py
 ```
 
 ---
 
 ## 3. Practicals Index & Implementation Details
 
-| Practical | Script Name | Short Name | Dataset | Core Algorithm / Technique |
-| :---: | :--- | :---: | :---: | :--- |
-| **02** | [`Practical_02_Route_Planning_BFS_DFS.py`](Practical_02_Route_Planning_BFS_DFS.py) | `2.py` | Built-in Graph | Breadth-First Search & Depth-First Search |
-| **03** | [`Practical_03_Rule_Based_Expert_System.py`](Practical_03_Rule_Based_Expert_System.py) | `3.py` | Medical Rules | Forward Chaining & Backward Chaining |
-| **04** | [`Practical_04_Data_Preprocessing_EDA.py`](Practical_04_Data_Preprocessing_EDA.py) | `4.py` | `heart.csv` | Missing value imputation, Outlier detection, Train-Test split |
-| **05** | [`Practical_05_Classification_Logistic_KNN.py`](Practical_05_Classification_Logistic_KNN.py) | `5.py` | `Admission_Predict.csv` | Logistic Regression & K-Nearest Neighbors (KNN) |
-| **06** | [`Practical_06_Regression_Linear_Polynomial.py`](Practical_06_Regression_Linear_Polynomial.py) | `6.py` | `Housing.csv` | Linear Regression vs Polynomial Regression ($Degree=2$) |
-| **07** | [`Practical_07_Clustering_KMeans_Hierarchical.py`](Practical_07_Clustering_KMeans_Hierarchical.py) | `7.py` | `Mall_Customers.csv` | K-Means (Elbow Method) & Agglomerative Hierarchical (Dendrogram) |
-| **08** | [`Practical_08_PCA_Dimensionality_Reduction.py`](Practical_08_PCA_Dimensionality_Reduction.py) | `8.py` | `wdbc.csv` | Principal Component Analysis (PCA) & Support Vector Machine (SVM) |
-| **09** | [`Practical_09_Ensemble_Learning_GridSearchCV.py`](Practical_09_Ensemble_Learning_GridSearchCV.py) | `9.py` | `breast_cancer.csv` | Random Forest, AdaBoost, SVM with GridSearchCV (5-Fold CV) |
+| Practical | Actual Script Name | Dataset | Core Algorithm / Technique |
+| :---: | :--- | :---: | :--- |
+| **02** | [`Practical_02_Route_Planning_BFS_and_DFS.py`](Practical_02_Route_Planning_BFS_and_DFS.py) | Built-in Graph | Breadth-First Search & Depth-First Search |
+| **03** | [`Practical_03_Rule_Based_Expert_System.py`](Practical_03_Rule_Based_Expert_System.py) | Medical Rules | Forward Chaining & Backward Chaining |
+| **04** | [`Practical_04_Data_Preprocessing_and_EDA.py`](Practical_04_Data_Preprocessing_and_EDA.py) | `heart.csv` | Missing value imputation, Outlier detection, Train-Test split |
+| **05** | [`Practical_05_Classification_Logistic_and_KNN.py`](Practical_05_Classification_Logistic_and_KNN.py) | `Admission_Predict.csv` | Logistic Regression & K-Nearest Neighbors (KNN) |
+| **06** | [`Practical_06_Regression_Linear_and_Polynomial.py`](Practical_06_Regression_Linear_and_Polynomial.py) | `Housing.csv` | Linear Regression vs Polynomial Regression ($Degree=2$) |
+| **07** | [`Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py`](Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py) | `Mall_Customers.csv` | K-Means (Elbow Method) & Agglomerative Hierarchical (Dendrogram) |
+| **08** | [`Practical_08_Dimensionality_Reduction_PCA_and_SVM.py`](Practical_08_Dimensionality_Reduction_PCA_and_SVM.py) | `wdbc.csv` | Principal Component Analysis (PCA) & Support Vector Machine (SVM) |
+| **09** | [`Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py`](Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py) | `breast_cancer.csv` | Random Forest, AdaBoost, SVM with GridSearchCV (5-Fold CV) |
 
 ---
 
@@ -142,7 +134,7 @@ python3 Practical_09_Ensemble_Learning_GridSearchCV.py
 - **Q2: What is the $R^2$ Score (Coefficient of Determination)?**
   - **Answer:** $R^2 = 1 - \frac{SS_{\text{res}}}{SS_{\text{tot}}}$. It quantifies the proportion of variance in the dependent variable explained by independent features. An $R^2$ of 1.0 indicates a perfect fit.
 
-### 🔹 Practical 7: Clustering (K-Means & Hierarchical)
+### 🔹 Practical 7: Customer Segmentation Clustering (K-Means & Hierarchical)
 - **Q1: What is Unsupervised Learning?**
   - **Answer:** Machine learning where the model is provided with unlabeled inputs without predefined target outcomes. The model discovers natural clusters, patterns, and groupings within the data.
 - **Q2: How does the Elbow Method determine optimal $K$ in K-Means?**
@@ -202,52 +194,44 @@ python3 -m pip install pandas scikit-learn matplotlib seaborn numpy scipy
 
 ```bash
 # प्रॅक्टिकल २: रूट प्लॅनिंग (BFS आणि DFS)
-python3 Practical_02_Route_Planning_BFS_DFS.py
-# (किंवा शॉर्टकट): python3 2.py
+python3 Practical_02_Route_Planning_BFS_and_DFS.py
 
 # प्रॅक्टिकल ३: एक्सपर्ट सिस्टीम (फॉरवर्ड आणि बॅकवर्ड चेनिंग)
 python3 Practical_03_Rule_Based_Expert_System.py
-# (किंवा शॉर्टकट): python3 3.py
 
 # प्रॅक्टिकल ४: डेटा प्रीप्रोसेसिंग आणि ट्रेन-टेस्ट स्प्लिट
-python3 Practical_04_Data_Preprocessing_EDA.py
-# (किंवा शॉर्टकट): python3 4.py
+python3 Practical_04_Data_Preprocessing_and_EDA.py
 
 # प्रॅक्टिकल ५: क्लासिफिकेशन (Logistic Regression आणि KNN)
-python3 Practical_05_Classification_Logistic_KNN.py
-# (किंवा शॉर्टकट): python3 5.py
+python3 Practical_05_Classification_Logistic_and_KNN.py
 
 # प्रॅक्टिकल ६: रिग्रेशन ॲनालिसिस (लिनिअर आणि पॉलिइनॉमिअल)
-python3 Practical_06_Regression_Linear_Polynomial.py
-# (किंवा शॉर्टकट): python3 6.py
+python3 Practical_06_Regression_Linear_and_Polynomial.py
 
-# प्रॅक्टिकल ७: क्लस्टरिंग (के-मीन्स आणि डेंड्रोग्राम)
-python3 Practical_07_Clustering_KMeans_Hierarchical.py
-# (किंवा शॉर्टकट): python3 7.py
+# प्रॅक्टिकल ७: कस्टमर सेगमेंटेशन क्लस्टरिंग (के-मीन्स आणि डेंड्रोग्राम)
+python3 Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py
 
 # प्रॅक्टिकल ८: डायमेंशनॅलिटी रिडक्शन (PCA सह SVM)
-python3 Practical_08_PCA_Dimensionality_Reduction.py
-# (किंवा शॉर्टकट): python3 8.py
+python3 Practical_08_Dimensionality_Reduction_PCA_and_SVM.py
 
-# प्रॅक्टिकल ९: एन्सेम्बल लर्निंग आणि GridSearchCV
-python3 Practical_09_Ensemble_Learning_GridSearchCV.py
-# (किंवा शॉर्टकट): python3 9.py
+# प्रॅक्टिकल ९: मॉडेल ऑप्टिमायझेशन, एन्सेम्बल लर्निंग आणि GridSearchCV
+python3 Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py
 ```
 
 ---
 
 ## ३. सर्व प्रॅक्टिकल्सची सविस्तर माहिती
 
-| प्रॅक्टिकल | फाईलचे पूर्ण नाव | शॉर्ट नाव | डेटासेट | वापरलेला अल्गोरिदम / तंत्रज्ञान |
-| :---: | :--- | :---: | :---: | :--- |
-| **०२** | [`Practical_02_Route_Planning_BFS_DFS.py`](Practical_02_Route_Planning_BFS_DFS.py) | `2.py` | आलेखाचा डेटा | Breadth-First Search (BFS) व Depth-First Search (DFS) |
-| **०३** | [`Practical_03_Rule_Based_Expert_System.py`](Practical_03_Rule_Based_Expert_System.py) | `3.py` | वैद्यकीय नियम | फॉरवर्ड चेनिंग (Forward) व बॅकवर्ड चेनिंग (Backward) |
-| **०४** | [`Practical_04_Data_Preprocessing_EDA.py`](Practical_04_Data_Preprocessing_EDA.py) | `4.py` | `heart.csv` | डेटा क्लीनिंग, मिसिंग व्हॅल्यू भरणे व ८०:२० ट्रेन-टेस्ट स्प्लिट |
-| **०५** | [`Practical_05_Classification_Logistic_KNN.py`](Practical_05_Classification_Logistic_KNN.py) | `5.py` | `Admission_Predict.csv` | लॉजिस्टीक रिग्रेशन (Logistic) व के-निअरेस्ट नेबर्स (KNN) |
-| **०६** | [`Practical_06_Regression_Linear_Polynomial.py`](Practical_06_Regression_Linear_Polynomial.py) | `6.py` | `Housing.csv` | लिनिअर रिग्रेशन विरुद्ध पॉलिइनॉमिअल रिग्रेशन (डिग्री २) |
-| **०७** | [`Practical_07_Clustering_KMeans_Hierarchical.py`](Practical_07_Clustering_KMeans_Hierarchical.py) | `7.py` | `Mall_Customers.csv` | के-मीन्स (एल्बो पद्धत) व हायराक्रिकल क्लस्टरिंग (डेंड्रोग्राम) |
-| **०८** | [`Practical_08_PCA_Dimensionality_Reduction.py`](Practical_08_PCA_Dimensionality_Reduction.py) | `8.py` | `wdbc.csv` | प्रिन्सिपल कॉम्पोनंट ॲनालिसिस (PCA) व सपोर्ट व्हेक्टर मशीन (SVM) |
-| **०९** | [`Practical_09_Ensemble_Learning_GridSearchCV.py`](Practical_09_Ensemble_Learning_GridSearchCV.py) | `9.py` | `breast_cancer.csv` | रँडम फॉरेस्ट, ॲडाबूस्ट व SVM यांचे GridSearchCV द्वारे ट्युनिंग |
+| प्रॅक्टिकल | फाईलचे प्रत्यक्ष पूर्ण नाव | डेटासेट | वापरलेला अल्गोरिदम / तंत्रज्ञान |
+| :---: | :--- | :---: | :--- |
+| **०२** | [`Practical_02_Route_Planning_BFS_and_DFS.py`](Practical_02_Route_Planning_BFS_and_DFS.py) | आलेखाचा डेटा | Breadth-First Search (BFS) व Depth-First Search (DFS) |
+| **०३** | [`Practical_03_Rule_Based_Expert_System.py`](Practical_03_Rule_Based_Expert_System.py) | वैद्यकीय नियम | फॉरवर्ड चेनिंग (Forward) व बॅकवर्ड चेनिंग (Backward) |
+| **०४** | [`Practical_04_Data_Preprocessing_and_EDA.py`](Practical_04_Data_Preprocessing_and_EDA.py) | `heart.csv` | डेटा क्लीनिंग, मिसिंग व्हॅल्यू भरणे व ८०:२० ट्रेन-टेस्ट स्प्लिट |
+| **०५** | [`Practical_05_Classification_Logistic_and_KNN.py`](Practical_05_Classification_Logistic_and_KNN.py) | `Admission_Predict.csv` | लॉजिस्टीक रिग्रेशन (Logistic) व के-निअरेस्ट नेबर्स (KNN) |
+| **०६** | [`Practical_06_Regression_Linear_and_Polynomial.py`](Practical_06_Regression_Linear_and_Polynomial.py) | `Housing.csv` | लिनिअर रिग्रेशन विरुद्ध पॉलिइनॉमिअल रिग्रेशन (डिग्री २) |
+| **०७** | [`Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py`](Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py) | `Mall_Customers.csv` | के-मीन्स (एल्बो पद्धत) व हायराक्रिकल क्लस्टरिंग (डेंड्रोग्राम) |
+| **०८** | [`Practical_08_Dimensionality_Reduction_PCA_and_SVM.py`](Practical_08_Dimensionality_Reduction_PCA_and_SVM.py) | `wdbc.csv` | प्रिन्सिपल कॉम्पोनंट ॲनालिसिस (PCA) व सपोर्ट व्हेक्टर मशीन (SVM) |
+| **०९** | [`Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py`](Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py) | `breast_cancer.csv` | रँडम फॉरेस्ट, ॲडाबूस्ट व SVM यांचे GridSearchCV द्वारे ट्युनिंग |
 
 ---
 
@@ -294,7 +278,7 @@ python3 Practical_09_Ensemble_Learning_GridSearchCV.py
 - **प्रश्न २: $R^2$ स्कोअर काय दर्शवतो?**
   - **उत्तर:** मॉडेलने डेटाचा किती टक्के फरक अचूक ओळखला आहे ते $R^2$ स्कोअर सांगतो. १.० म्हणजे १००% अचूक मॉडेल.
 
-### 🔹 प्रॅक्टिकल ७: क्लस्टरिंग (के-मीन्स आणि हायराक्रिकल)
+### 🔹 प्रॅक्टिकल ७: कस्टमर सेगमेंटेशन क्लस्टरिंग (के-मीन्स आणि हायराक्रिकल)
 - **प्रश्न १: अनसुपरव्हाइझ्ड लर्निंग म्हणजे काय?**
   - **उत्तर:** ज्या डेटामध्ये पूर्वीपासून लेबल्स किंवा उत्तरे दिलेली नसतात, त्यातील नमुने किंवा गट (Clusters) शोधणे म्हणजे अनसुपरव्हाइझ्ड लर्निंग.
 - **प्रश्न २: K-Means मध्ये योग्य $K$ कसा निवडतात?**
@@ -308,7 +292,7 @@ python3 Practical_09_Ensemble_Learning_GridSearchCV.py
 - **प्रश्न २: PCA कसे काम करते?**
   - **उत्तर:** PCA मूळ डेटाचे कोव्हेरियन्स आणि आयगेन-व्हॅल्यूज काढून डेटा अशा अक्षांवर प्रोजेक्ट करतो जिथे जास्तीत जास्त माहिती (Variance) टिकून राहील आणि कॉलमची संख्या कमी होईल.
 
-### 🔹 प्रॅक्टिकल ९: एन्सेम्बल लर्निंग आणि ट्युनिंग
+### 🔹 प्रॅक्टिकल ९: मॉडेल ऑप्टिमायझेशन, एन्सेम्बल लर्निंग आणि ट्युनिंग
 - **प्रश्न १: बॅगिंग (Bagging) आणि बूस्टिंग (Boosting) मध्ये काय फरक आहे?**
   - **उत्तर:**
     - **बॅगिंग (उदा. Random Forest):** अनेक डिसिजन ट्री मॉडेल्स स्वतंत्रपणे आणि समांतर चालवले जातात आणि बहुमताने निर्णय घेतला जातो (Overfitting कमी होते).
@@ -323,14 +307,14 @@ python3 Practical_09_Ensemble_Learning_GridSearchCV.py
 ```
 aiml/
 │
-├── Practical_02_Route_Planning_BFS_DFS.py          (किंवा 2.py)
-├── Practical_03_Rule_Based_Expert_System.py        (किंवा 3.py)
-├── Practical_04_Data_Preprocessing_EDA.py          (किंवा 4.py)
-├── Practical_05_Classification_Logistic_KNN.py     (किंवा 5.py)
-├── Practical_06_Regression_Linear_Polynomial.py    (किंवा 6.py)
-├── Practical_07_Clustering_KMeans_Hierarchical.py  (किंवा 7.py)
-├── Practical_08_PCA_Dimensionality_Reduction.py    (किंवा 8.py)
-├── Practical_09_Ensemble_Learning_GridSearchCV.py  (किंवा 9.py)
+├── Practical_02_Route_Planning_BFS_and_DFS.py
+├── Practical_03_Rule_Based_Expert_System.py
+├── Practical_04_Data_Preprocessing_and_EDA.py
+├── Practical_05_Classification_Logistic_and_KNN.py
+├── Practical_06_Regression_Linear_and_Polynomial.py
+├── Practical_07_Customer_Segmentation_KMeans_and_Hierarchical.py
+├── Practical_08_Dimensionality_Reduction_PCA_and_SVM.py
+├── Practical_09_Ensemble_Learning_and_Hyperparameter_Tuning.py
 │
 ├── datasets/                                       # लॅपटॉपसाठी डेटासेट्स
 │   ├── heart.csv
