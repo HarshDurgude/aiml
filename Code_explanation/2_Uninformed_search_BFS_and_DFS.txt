@@ -1,0 +1,36 @@
+PRACTICAL 2: Uninformed Search - BFS and DFS
+
+NEW TERMS:
+- Uninformed Search: Searching without any extra hint about where the goal is.
+- Graph: Nodes (A, B, C...) connected by edges; stored here as a dictionary.
+- BFS (Breadth First Search): Explores level by level (all neighbours first).
+- DFS (Depth First Search): Goes as deep as possible before backtracking.
+- Queue: First In First Out (FIFO) - used by BFS.
+- Stack: Last In First Out (LIFO) - used by DFS.
+- Visited list: Nodes already explored, so we don't repeat them.
+- Start node / Goal node: Where we begin / what we want to reach (goal = F).
+
+CODE EXPLANATION:
+
+1. GRAPH
+   A → B, C | B → D, E | C → F | D, E, F have no children.
+   (Tree: A at top, B and C below it, then D, E under B and F under C.)
+
+2. BFS FUNCTION
+   - Starts with a queue containing the start node.
+   - pop(0) takes the FIRST node (queue behaviour).
+   - If not visited → mark visited; if it is the goal, stop and return.
+   - Adds its children to the END of the queue.
+   - Result: visits level by level.
+
+3. DFS FUNCTION
+   - Starts with a stack containing the start node.
+   - pop() takes the LAST node (stack behaviour).
+   - If not visited → mark visited; if it is the goal, stop and return.
+   - Adds children using reversed() so the left child is explored first.
+   - Result: goes deep down one branch first.
+
+4. MAIN PROGRAM
+   - Takes start node from the user; goal is fixed as "F".
+   - Checks node is valid, then prints BFS and DFS visiting order.
+   - Starting from A: BFS = A, B, C, D, E, F | DFS = A, B, D, E, C, F.

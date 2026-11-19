@@ -1,0 +1,38 @@
+PRACTICAL 5: Logistic Regression & KNN Classification
+
+NEW TERMS:
+- Classification: Predicting a category (admission / no admission).
+- Features: Input data used for prediction.
+- Target: Output we want to predict.
+- Standardization: Bringing values to a similar scale.
+- Logistic Regression: Model used for classification.
+- KNN: Predicts using the nearest data points.
+
+CODE EXPLANATION:
+
+1. IMPORT LIBRARIES
+   Imports Pandas, Logistic Regression, KNN and evaluation tools.
+
+2. LOAD DATASET
+   Reads Admission_Predict.csv using Pandas.
+
+3. CREATE TARGET & SELECT FEATURES
+   - Chance of Admit >= 0.7 → target = 1
+   - Chance of Admit < 0.7 → target = 0
+   - X = Input features (GRE, TOEFL, CGPA, etc.)
+   - y = Target column.
+
+4. STANDARDIZATION & SPLITTING
+   - StandardScaler brings features to a similar scale.
+   - Splits data into 80% training and 20% testing.
+
+5. LOGISTIC REGRESSION
+   - fit() trains the model.
+   - predict() predicts admission results.
+   - Displays accuracy and confusion matrix.
+
+6. KNN CLASSIFICATION
+   - Uses 5 nearest neighbours.
+   - fit() trains the model.
+   - predict() predicts results.
+   - Displays accuracy and classification report.

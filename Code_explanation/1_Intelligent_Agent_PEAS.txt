@@ -1,0 +1,33 @@
+PRACTICAL 1: Intelligent Agent (PEAS) - Smart Home Agent
+
+NEW TERMS:
+- Agent: Something that perceives its environment and acts on it.
+- PEAS: Performance, Environment, Actuators, Sensors - the 4 parts that describe an agent.
+- Percept: The input the agent receives at a moment (temperature, motion).
+- Sensor: Collects input (temperature sensor, motion sensor).
+- Actuator: Performs the action (AC, heater, fan).
+- Internal Model: Memory the agent keeps (last 3 temperature readings).
+- Rule-based decision: Action is chosen using if-elif-else conditions.
+
+CODE EXPLANATION:
+
+1. CREATE THE AGENT CLASS (SmartHomeAgent)
+   - Stores the target temperature (default 21°C).
+   - Keeps an empty history list as its internal model.
+
+2. PERCEIVE METHOD
+   - Receives temperature + motion from the sensors.
+   - Saves the temperature in history (only last 3 are kept; the oldest is removed).
+   - Passes the data to decide_action().
+
+3. DECIDE_ACTION METHOD (the "brain")
+   - No motion         → AC/Heater OFF (energy saving).
+   - Temp > target + 1 → Turn ON AC (cooling).
+   - Temp < target - 1 → Turn ON Heater (heating).
+   - Otherwise         → Temperature optimal, fan only.
+
+4. MAIN PROGRAM
+   - Takes the target temperature and number of readings from the user.
+   - For each reading, takes temperature and motion (yes/no).
+   - Agent returns an action, which is printed as Sensors -> Actuator output.
+   - Also prints the internal model (last 3 temperatures).

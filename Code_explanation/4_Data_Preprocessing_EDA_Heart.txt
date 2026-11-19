@@ -1,0 +1,49 @@
+PRACTICAL 4: Data Preprocessing & EDA (Heart Disease Dataset)
+
+NEW TERMS:
+- Preprocessing: Cleaning and preparing raw data before building a model.
+- EDA (Exploratory Data Analysis): Studying data through statistics and graphs.
+- Duplicates: Repeated rows that are removed.
+- Missing Values: Empty cells; here filled with the column mean.
+- Encoding: Converting text categories to numbers (not needed here, already numeric).
+- Features (X) / Target (y): Inputs / the output to predict (target = heart disease).
+- Train-Test Split: Dividing data into training and testing parts.
+- Standardization: Scaling values to mean 0 and standard deviation 1.
+- Histogram: Shows the distribution of each column.
+- Boxplot: Shows spread and outliers.
+- Outlier: A value far away from the rest.
+
+CODE EXPLANATION:
+
+1. IMPORT LIBRARIES
+   Pandas (data), Matplotlib and Seaborn (graphs), Scikit-learn (split and scaling).
+
+2. LOAD DATASET
+   Reads heart.csv and prints the first 5 rows with head().
+
+3. DATA CLEANING
+   Prints shape, then drop_duplicates() removes repeated rows.
+
+4. MISSING VALUE HANDLING
+   isnull().sum() counts missing values per column.
+   fillna(data.mean()) fills them with the column average.
+
+5. ENCODING
+   Only a print statement - the data is already numeric.
+
+6. STATISTICAL ANALYSIS
+   describe() shows count, mean, std, min, max and quartiles.
+
+7. SEPARATE FEATURES AND TARGET
+   X = everything except "target"; y = the "target" column.
+
+8. TRAIN-TEST SPLIT
+   80% training, 20% testing (random_state=42 keeps the split the same every run).
+
+9. FEATURE SCALING
+   - fit_transform() on training data: learns the scale AND applies it.
+   - transform() on testing data: only applies it (prevents data leakage).
+
+10. VISUALIZATION
+   - Histograms for all columns (distribution).
+   - Boxplot of all features (spread and outliers).

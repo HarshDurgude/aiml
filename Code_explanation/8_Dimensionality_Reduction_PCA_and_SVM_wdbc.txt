@@ -1,0 +1,47 @@
+PRACTICAL 8: Dimensionality Reduction using PCA (Breast Cancer wdbc dataset)
+
+NEW TERMS:
+- Dimensionality Reduction: Reducing the number of features while keeping the important information.
+- PCA (Principal Component Analysis): Converts many features into fewer new ones
+  (principal components) that capture the most variance.
+- Principal Component: A new feature formed by combining the original features.
+- Variance: How much the data spreads out (more variance = more information).
+- Diagnosis: Target; M = Malignant (cancerous) = 1, B = Benign (non-cancerous) = 0.
+- Stratify: Keeps the same class ratio in both the train and test sets.
+- max_iter: Maximum number of training attempts allowed for the model to converge.
+
+CODE EXPLANATION:
+
+1. LOAD AND CLEAN
+   Reads wdbc.csv, prints the first rows, and removes duplicates.
+
+2. FEATURES AND TARGET
+   - X = all columns except "diagnosis".
+   - y = diagnosis mapped to numbers (M → 1, B → 0).
+   - Prints the number of features before PCA (about 30).
+
+3. TRAIN-TEST SPLIT
+   80:20 with stratify=y so the M/B ratio stays balanced.
+
+4. FEATURE SCALING
+   StandardScaler: fit_transform on train, transform on test.
+   PCA needs scaled data to work properly.
+
+5. CLASSIFICATION BEFORE PCA
+   Logistic Regression trained on ALL features; accuracy is printed.
+
+6. APPLY PCA
+   - PCA(n_components=2) reduces all features to just 2 components.
+   - fit_transform() on train, transform() on test.
+
+7. CLASSIFICATION AFTER PCA
+   Logistic Regression trained on the 2 components; accuracy is printed.
+   (Comparison: accuracy drops only slightly even though features were
+   cut from ~30 to 2.)
+
+8. PCA VISUALIZATION
+   Scatter plot of PC1 vs PC2 coloured by diagnosis, showing the two
+   classes are mostly separable.
+
+(Note: the file name mentions SVM, but the code contains no SVM - it only
+uses Logistic Regression and PCA.)

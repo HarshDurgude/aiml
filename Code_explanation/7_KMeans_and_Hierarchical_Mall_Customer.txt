@@ -1,0 +1,43 @@
+PRACTICAL 7: K-Means & Hierarchical Clustering (Mall Customers)
+
+NEW TERMS:
+- Clustering: Grouping similar data points WITHOUT labels (unsupervised learning).
+- Unsupervised Learning: No target column; model finds patterns itself.
+- K-Means: Divides data into K groups around cluster centres (centroids).
+- Centroid: The centre point of a cluster.
+- WCSS (Within-Cluster Sum of Squares): How tightly points sit inside clusters
+  (stored in inertia_).
+- Elbow Method: Plot WCSS against K and pick the "elbow" bend as the best K.
+- Hierarchical Clustering: Builds clusters step by step by merging the closest ones.
+- Agglomerative: Bottom-up approach - every point starts as its own cluster, then merges.
+- Dendrogram: Tree diagram showing how clusters are merged.
+- Ward linkage: Merges clusters that increase variance the least.
+
+CODE EXPLANATION:
+
+1. IMPORT LIBRARIES
+   Pandas, Matplotlib, KMeans, AgglomerativeClustering, StandardScaler,
+   and dendrogram/linkage from SciPy.
+
+2. LOAD DATASET AND SELECT FEATURES
+   Reads Mall_Customers.csv and uses only Annual Income and Spending Score.
+
+3. SCALING
+   StandardScaler puts both columns on a similar scale.
+
+4. ELBOW METHOD
+   - Runs K-Means for K = 1 to 10.
+   - Saves the WCSS (inertia_) each time and plots it.
+   - The bend in the curve suggests the best K (here, 5).
+
+5. K-MEANS CLUSTERING
+   - KMeans with 5 clusters.
+   - fit_predict() trains and returns each customer's cluster number.
+   - Prints customers per cluster and shows a scatter plot coloured by cluster.
+
+6. DENDROGRAM
+   linkage(method="ward") computes merges; dendrogram() plots the tree.
+
+7. HIERARCHICAL CLUSTERING
+   - AgglomerativeClustering with 5 clusters.
+   - Prints cluster sizes and plots a coloured scatter plot.

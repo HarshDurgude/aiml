@@ -1,0 +1,39 @@
+PRACTICAL 6: Linear vs Polynomial Regression (Housing Dataset)
+
+NEW TERMS:
+- Regression: Predicting a continuous number (house price).
+- Linear Regression: Fits a straight-line relationship.
+- Polynomial Regression: Fits a curve by adding powers/combinations of features
+  (degree 2 = squares and products).
+- One-Hot Encoding: Converting text categories (yes/no) into 0/1 columns.
+- drop_first=True: Drops one dummy column to avoid duplicate information.
+- Pipeline: Chains several steps so they run in order automatically.
+- MSE (Mean Squared Error): Average of squared errors (lower is better).
+- MAE (Mean Absolute Error): Average of absolute errors (lower is better).
+- R2 Score: How well the model explains the data (closer to 1 is better).
+
+CODE EXPLANATION:
+
+1. LOAD DATASET
+   Reads Housing.csv.
+
+2. FEATURES AND TARGET
+   - Target y = "price".
+   - X = all other columns, with get_dummies() converting text columns to numbers.
+   - Split into 80% training and 20% testing.
+
+3. LINEAR REGRESSION
+   - fit() trains the model on training data.
+   - predict() gives price predictions on test data.
+
+4. POLYNOMIAL REGRESSION (PIPELINE)
+   Three steps run in order:
+   a) PolynomialFeatures(degree=2): creates squared and interaction features.
+   b) StandardScaler: scales the many new features.
+   c) LinearRegression: fits the final model.
+   Then fit() and predict() as above.
+
+5. MODEL COMPARISON
+   - Calculates MSE, MAE and R2 for both models on test data.
+   - Prints them in one table so the better model can be identified
+     (lower MSE/MAE and higher R2 = better).

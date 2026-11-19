@@ -1,0 +1,39 @@
+PRACTICAL 3: Rule-Based Expert System - Forward & Backward Chaining
+
+NEW TERMS:
+- Expert System: Program that mimics a human expert using rules.
+- Knowledge Base: The collection of IF-THEN rules.
+- Rule: IF conditions THEN result (e.g., fever + cough → flu).
+- Facts: Things currently known to be true.
+- Forward Chaining: Starts from facts and keeps applying rules to derive new facts (data-driven).
+- Backward Chaining: Starts from a goal and works back to check whether facts support it (goal-driven).
+- Recursion: A function calling itself (used in backward chaining).
+
+CODE EXPLANATION:
+
+1. KNOWLEDGE BASE (RULES)
+   - [fever, cough] → flu
+   - [flu] → take_rest
+   - [cold, sneezing] → common_cold
+   - [common_cold] → take_medicine
+
+2. INITIAL FACTS
+   fever, cough, cold, sneezing.
+
+3. FORWARD CHAINING
+   - Loops through all rules repeatedly.
+   - If ALL conditions of a rule are in facts and the result is new → add it to facts.
+   - Stops when a full pass adds no new fact.
+   - Derives: flu → take_rest, common_cold → take_medicine.
+
+4. BACKWARD CHAINING
+   - Goal = take_medicine.
+   - If goal is already in facts → True.
+   - Otherwise finds a rule whose result is the goal and recursively checks
+     whether all its conditions can be proven.
+   - take_medicine ← common_cold ← (cold, sneezing) → all true → Goal Achieved.
+
+5. MAIN PROGRAM
+   Prints initial facts, runs forward chaining, then backward chaining.
+   (Note: forward chaining runs first and modifies facts, so the goal is
+   already found in facts during backward chaining.)

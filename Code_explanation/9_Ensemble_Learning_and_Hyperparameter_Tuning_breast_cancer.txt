@@ -1,0 +1,41 @@
+PRACTICAL 9: Ensemble Learning & Hyperparameter Tuning (GridSearchCV)
+
+NEW TERMS:
+- Ensemble Learning: Combining multiple models to get better predictions.
+- Random Forest: Many decision trees voting together (bagging).
+- AdaBoost: Builds models one after another, each fixing the previous one's mistakes (boosting).
+- SVM (SVC): Finds the best boundary that separates classes with maximum margin.
+- Hyperparameter: A setting chosen BEFORE training (C, kernel, n_estimators, learning_rate).
+- Hyperparameter Tuning: Searching for the best settings.
+- GridSearchCV: Tries every combination of parameters from a grid.
+- Cross-Validation (cv=5): Splits training data into 5 parts, trains/tests 5 times, and averages the score.
+- C: Controls how strictly SVM avoids mistakes.
+- Kernel: Function that decides the shape of the boundary (linear or rbf).
+- n_estimators: Number of trees / weak models.
+- learning_rate: How much each new model contributes (AdaBoost).
+- best_params_ / best_estimator_: The best settings found / the model built with them.
+
+CODE EXPLANATION:
+
+1. IMPORT LIBRARIES
+   Pandas, the breast cancer dataset, AdaBoost, Random Forest, SVM,
+   GridSearchCV, train_test_split and accuracy_score.
+
+2. LOAD DATASET
+   Reads breast_cancer.csv (or uses scikit-learn's built-in copy if the file is missing).
+   X = features, y = target. Split 80:20 with stratify=y.
+
+3. DEFINE MODELS AND PARAMETER GRIDS
+   A dictionary with three models, each paired with its values to try:
+   - SVM: C = [0.1, 1, 10], kernel = [linear, rbf]
+   - Random Forest: n_estimators = [50, 100]
+   - AdaBoost: n_estimators = [50, 100], learning_rate = [0.5, 1.0]
+
+4. LOOP: TRAIN, TUNE AND COMPARE (for each model)
+   a) BEFORE TUNING: fit() with default settings, then record test accuracy.
+   b) AFTER TUNING: GridSearchCV with 5-fold cross-validation tries every
+      combination and keeps the best.
+   c) Tests the best model on the test set to get the accuracy after tuning.
+
+5. OUTPUT
+   For each model, prints accuracy before vs after tuning and the best parameters found.
